@@ -10,13 +10,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>APD SecretOffice: Admins</title>
 </head>
-<body>
+<body id ="addrecordcontent">
     
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class="fa-solid fa-user-secret"></i>
-                <span>App Name</span>
+                <i class="fa-solid fa-tooth"></i>
+                <span>Mediatrix</span>
             </div>
             <i class="fa-solid fa-bars" id = "btn"></i>
         </div>
@@ -95,11 +95,11 @@
                 <input type="text" class="form-control name-field"  id="description">
             </div>
             <div class="mb-3">
-                <label for="pxfirstname" class="form-label">Patients' First Name</label>
+                <label for="pxfirstname" class="form-label">Patient's First Name</label>
                 <input type="text" class="form-control name-field"  id="pxfirstname">
             </div>
             <div class="mb-3">
-                <label for="pxlastname" class="form-label">Patients' Last Name</label>
+                <label for="pxlastname" class="form-label">Patient's Last Name</label>
                 <input type="text" class="form-control name-field"  id="pxlastname">
             </div>
             <div class="mb-3">

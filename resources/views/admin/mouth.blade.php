@@ -14,8 +14,8 @@
     <div class="sidebar">
         <div class="top">
             <div class="logo">
-                <i class="fa-solid fa-user-secret"></i>
-                <span>App Name</span>
+                <i class="fa-solid fa-tooth"></i>
+                <span>Mediatrix</span>
             </div>
             <i class="fa-solid fa-bars" id = "btn"></i>
         </div>
