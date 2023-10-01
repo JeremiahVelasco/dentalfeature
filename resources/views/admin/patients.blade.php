@@ -85,7 +85,6 @@
                             <th>Middle Name</th>
                             <th>Last Name</th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -115,8 +114,6 @@
             sidebar.classList.toggle('active');
         }
 
-
-
         document.addEventListener('click', function (e) {
         if (e.target.classList.contains('view-records')) {
             e.preventDefault();
@@ -133,7 +130,7 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        window.location.href = 'admin/mouth';
+                        window.location.href = 'mouth';
                         console.log('Success: ' + firstname + " " + lastname);
                     } else {
                     }

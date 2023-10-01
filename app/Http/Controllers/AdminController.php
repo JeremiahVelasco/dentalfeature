@@ -136,9 +136,9 @@ class AdminController extends Controller
             return view('admin/mouth')->with(['records' => $data, 'success' => false]);
         } else {
             // If records are found, redirect with the data and success set to true
+            session(['records'=>$data]);
             return response()->json([
-                'success' => true,
-                'records' => $data,
+                'success'=>true
             ]);
         }
     }
