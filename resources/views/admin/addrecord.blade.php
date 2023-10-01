@@ -29,42 +29,42 @@
         </div>
         <ul>
             <li>
-                <a href = "/admindashboard">
+                <a href = "/dashboard">
                     <i class="fa-solid fa-grip"></i>
                     <span class="nav-item">Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href = "/adminsubmissions">
+                <a href = "/appointment">
                     <i class="fa-solid fa-file-code"></i>
                     <span class="nav-item">Appointment</span>
                 </a>
                 <span class="tooltip">Appointment</span>
             </li>
             <li>
-                <a href = "/adminnews">
+                <a href = "/patients">
                     <i class="fa-solid fa-newspaper"></i>
                     <span class="nav-item">Patients</span>
                 </a>
                 <span class="tooltip">Patients</span>
             </li>
             <li>
-                <a href = "/adminusers">
+                <a href = "/addrecord">
                     <i class="fa-solid fa-users"></i>
                     <span class="nav-item">Add</span>
                 </a>
                 <span class="tooltip">Add</span>
             </li>
             <li>
-                <a href = "records">
+                <a href = "/records">
                     <i class="fa-solid fa-user-secret"></i>
                     <span class="nav-item">Records</span>
                 </a>
                 <span class="tooltip">Records</span>
             </li>
             <li>
-                <a href = "/adminlogout">
+                <a href = "/logout">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="nav-item">Logout</span>
                 </a>
