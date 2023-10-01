@@ -133,6 +133,13 @@
                         window.location.href = 'mouth';
                         console.log('Success: ' + firstname + " " + lastname);
                     } else {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'No Records Found',
+                            showConfirmButton: true,
+                            timer: 2500
+                        })
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
