@@ -79,23 +79,25 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Patient ID</th>
+                            <th></th>
                             <th>Email</th>
                             <th>First Name</th>
                             <th>Middle Name</th>
                             <th>Last Name</th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="view-records">{{ $user['patientid'] }}</a></td>
+                        <td></td>
                         <td>{{ $user['email']}}</td>
                         <td>{{ $user['firstname']}}</td>
                         <td>{{ $user['middlename']}}</td>
                         <td>{{ $user['lastname']}}</td>
                         <td>{{ $user['points']}}</td>
+                        <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="view-records">Records</a></td>
                     </tr>
                     @endforeach
                     </tbody>
@@ -138,6 +140,7 @@
                             icon: 'error',
                             title: 'No Records Found',
                             showConfirmButton: true,
+                            confirmButtonColor: '#F27574',
                             timer: 2500
                         })
                     }
