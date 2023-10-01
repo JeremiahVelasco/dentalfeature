@@ -12,6 +12,66 @@
 </head>
 <body>
 
+    <div class="sidebar">
+        <div class="top">
+            <div class="logo">
+                <i class="fa-solid fa-user-secret"></i>
+                <span>App Name</span>
+            </div>
+            <i class="fa-solid fa-bars" id = "btn"></i>
+        </div>
+        <div class="user">
+            <img src = "" alt="secret-user" class = "user-img">
+            <div class="">
+                <p class = "bold">Jeremiah V.</p>
+                <p>Admin</p>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href = "/admindashboard">
+                    <i class="fa-solid fa-grip"></i>
+                    <span class="nav-item">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href = "/adminsubmissions">
+                    <i class="fa-solid fa-file-code"></i>
+                    <span class="nav-item">Appointment</span>
+                </a>
+                <span class="tooltip">Appointment</span>
+            </li>
+            <li>
+                <a href = "/adminnews">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span class="nav-item">Patients</span>
+                </a>
+                <span class="tooltip">Patients</span>
+            </li>
+            <li>
+                <a href = "/adminusers">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="nav-item">Add</span>
+                </a>
+                <span class="tooltip">Add</span>
+            </li>
+            <li>
+                <a href = "/adminadmins">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span class="nav-item">Records</span>
+                </a>
+                <span class="tooltip">Records</span>
+            </li>
+            <li>
+                <a href = "/adminlogout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="nav-item">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+        </ul>
+    </div>
 
     <div class="main-content">
         <div class="container">

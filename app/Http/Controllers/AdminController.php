@@ -15,22 +15,13 @@ class AdminController extends Controller
 
     public function records()
     {
-        return view('admin/records');
+        $data = Records::all();
+        return view('admin/records', ['records'=>$data]);
     }
 
-    public function addpatient()
+    public function addRecord()
     {
-        return view('admin/addpatient');
-    }
-
-    public function create(array $data)
-    {
-        return DB::table('news')
-        ->insert([
-            'title' => $data['title'],
-            'content' => $data['content'],
-            'author' => $data['author'],
-        ]);
+        return view('admin/addrecord');
     }
 
     public function patients()
@@ -95,7 +86,7 @@ class AdminController extends Controller
         ];
 
         // Add the record to the database
-        $result = $this->addRecord($data); // Assuming you have a function to add the record
+        $result = $this->insertRecord($data); // Assuming you have a function to add the record
 
         if ($result) {
             // Return a success response if the record was added successfully
@@ -107,7 +98,7 @@ class AdminController extends Controller
     }
 
 
-    public function addRecord(array $data)
+    public function insertRecord(array $data)
     {
         return DB::table('records')
         ->insert([
