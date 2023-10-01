@@ -29,6 +29,9 @@ class User extends Authenticatable
         'image',
         'tooth',
         'description',
+        'pxfirstname',
+        'pxlastname',
+        'amount',
     ];
 
     /**

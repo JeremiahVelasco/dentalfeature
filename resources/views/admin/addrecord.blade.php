@@ -95,6 +95,14 @@
                 <input type="text" class="form-control name-field"  id="description">
             </div>
             <div class="mb-3">
+                <label for="pxfirstname" class="form-label">Patients' First Name</label>
+                <input type="text" class="form-control name-field"  id="pxfirstname">
+            </div>
+            <div class="mb-3">
+                <label for="pxlastname" class="form-label">Patients' Last Name</label>
+                <input type="text" class="form-control name-field"  id="pxlastname">
+            </div>
+            <div class="mb-3">
                 <label for="amount" class="form-label">Amount</label>
                 <input type="text" class="form-control name-field" id="amount">
                 <small id="lastname-error" style="color:red"></small>
@@ -122,6 +130,8 @@
             time: $("#time").val(),
             tooth: $("#tooth").val(),
             description: $("#description").val(),
+            pxfirstname: $("#pxfirstname").val(),
+            pxlastname: $("#pxlastname").val(),
             amount: $("#amount").val(),
             };
 

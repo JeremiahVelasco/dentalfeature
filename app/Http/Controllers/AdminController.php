@@ -31,6 +31,11 @@ class AdminController extends Controller
         return view('admin/patients', ['users'=>$data]);
     }
 
+    public function mouth()
+    {
+        return view('admin/mouth');
+    }
+
     public function login(Request $request)
     {
         $credentials=$request->validate([
@@ -72,6 +77,8 @@ class AdminController extends Controller
             'date' => 'required',
             'time' => 'required',
             'tooth' => 'required',
+            'pxfirstname' => 'required',
+            'pxlastname' => 'required',
             'description' => 'required',
             'amount' => 'required',
         ]);
@@ -82,6 +89,8 @@ class AdminController extends Controller
             'time' => $request->input('time'),
             'tooth' => $request->input('tooth'),
             'description' => $request->input('description'),
+            'pxfirstname' => $request->input('pxfirstname'),
+            'pxlastname' => $request->input('pxlastname'),
             'amount' => $request->input('amount'),
         ];
 
@@ -106,9 +115,36 @@ class AdminController extends Controller
             'time' => $data['time'],
             'tooth' => $data['tooth'],
             'description' => $data['description'],
+            'pxfirstname' => $data['pxfirstname'],
+            'pxlastname' => $data['pxlastname'],
             'amount' => $data['amount'],
         ]);
     }
+
+    public function getRecords(Request $request)
+    {
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+    
+        // Use a query to fetch records for the specified user
+        $data = Records::where('pxfirstname', $firstname)
+                       ->where('pxlastname', $lastname)
+                       ->get();
+    
+        if ($data->isEmpty()) {
+            // If no records are found, redirect with a message using the with method
+            return view('admin/mouth')->with(['records' => $data, 'success' => false]);
+        } else {
+            // If records are found, redirect with the data and success set to true
+            return response()->json([
+                'success' => true,
+                'records' => $data,
+            ]);
+        }
+    }
+    
+    
+    
 
 }
 

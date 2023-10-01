@@ -80,9 +80,11 @@
                     <thead>
                         <tr>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Tooth</th>
                             <th>Description</th>
-                            <th>Time</th>
+                            <th>Px First Name</th>
+                            <th>Px Last Name</th>
                             <th>Amount</th>
                         </tr>
                     </thead>
@@ -90,9 +92,11 @@
                     @foreach($records as $record)
                     <tr>
                         <td>{{ $record['date']}}</td>
+                        <td>{{ $record['time']}}</td>
                         <td>{{ $record['tooth']}}</td>
                         <td>{{ $record['description']}}</td>
-                        <td>{{ $record['time']}}</td>
+                        <td>{{ $record['pxfirstname']}}</td>
+                        <td>{{ $record['pxlastname']}}</td>
                         <td>{{ $record['amount']}}</td>
                     </tr>
                     @endforeach

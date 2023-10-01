@@ -91,19 +91,19 @@
                     <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td>{{ $user['patientid']}}</td>
+                        <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="view-records">{{ $user['patientid'] }}</a></td>
                         <td>{{ $user['email']}}</td>
                         <td>{{ $user['firstname']}}</td>
                         <td>{{ $user['middlename']}}</td>
                         <td>{{ $user['lastname']}}</td>
                         <td>{{ $user['points']}}</td>
-                        <td><a href = "#">Records</a></td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
             </section>
         </div>
+
     </div>
 
 
@@ -114,6 +114,38 @@
         btn.onclick = function () {
             sidebar.classList.toggle('active');
         }
+
+
+
+        document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('view-records')) {
+            e.preventDefault();
+            const firstname = e.target.getAttribute('data-firstname');
+            const lastname = e.target.getAttribute('data-lastname');
+            
+            // Send an AJAX request to the getRecords function in the controller
+            $.ajax({
+                type: 'GET',
+                url: '/getRecords',
+                data: {
+                    firstname: firstname,
+                    lastname: lastname,
+                },
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = 'admin/mouth';
+                        console.log('Success: ' + firstname + " " + lastname);
+                    } else {
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX Error:', textStatus, errorThrown);
+                }
+            });
+
+        }
+    });
+
     </script>
 
 

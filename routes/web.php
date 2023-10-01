@@ -40,3 +40,7 @@ Route::get('/records', [AdminController::class, 'records']);
 Route::get('/patients', [AdminController::class, 'patients']);
 Route::get('/addrecord', [AdminController::class, 'addRecord']);
 Route::post('/storeRecord', [AdminController::class, 'storeRecord']);
+Route::get('/getRecords', [AdminController::class, 'getRecords']);
+//Route::get('/mouth', [AdminController::class, 'admin.mouth']);
+Route::get('/admin/mouth', [AdminController::class, 'getRecords'])->name('admin.mouth');
+
