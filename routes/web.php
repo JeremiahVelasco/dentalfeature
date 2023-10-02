@@ -36,6 +36,7 @@ Route::get('registersuccess',[MainController::class,'registersuccess']);
 
 
 //Admin Routes
+Route::get('/dashboard', [AdminController::class, 'dashboard']);
 Route::get('/records', [AdminController::class, 'records']);
 Route::get('/patients', [AdminController::class, 'patients']);
 Route::get('/addrecord', [AdminController::class, 'addRecord']);
