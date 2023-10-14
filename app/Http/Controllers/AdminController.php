@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function records()
     {
         $data = Records::all();
-        return view('admin/records', ['records'=>$data]);
+        return view('admin/records', ['records' => $data]);
     }
 
     public function addRecord()
@@ -33,7 +33,7 @@ class AdminController extends Controller
     {
         //return view('admin/adminusers');
         $data = Patients::all();
-        return view('admin/patients', ['users'=>$data]);
+        return view('admin/patients', ['users' => $data]);
     }
 
     public function mouth()
@@ -43,34 +43,35 @@ class AdminController extends Controller
 
     public function login(Request $request)
     {
-        $credentials=$request->validate([
-            'studentid'=>['required'],
-            'password'=>['required']
+        $credentials = $request->validate([
+            'studentid' => ['required'],
+            'password' => ['required']
         ]);
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
 
             $user = Auth::user(); // Get the authenticated user
 
             // Store user information in the session
             $request->session()->put('studentid', $user->studentid);
             return response()->json([
-                "success"=>true,
-                "message"=>$user
+                "success" => true,
+                "message" => $user
             ]);
         }
-        return response()->json(["success"=>false]); 
+        return response()->json(["success" => false]);
     }
 
     public function success()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return view('main.home');
         }
-   
+
         return redirect("login")->withSuccess('are not allowed to access');
     }
 
-    public function signOut() {
+    public function signOut()
+    {
         Session::flush();
         Auth::logout();
     }
@@ -115,42 +116,42 @@ class AdminController extends Controller
     public function insertRecord(array $data)
     {
         return DB::table('records')
-        ->insert([
-            'date' => $data['date'],
-            'time' => $data['time'],
-            'tooth' => $data['tooth'],
-            'description' => $data['description'],
-            'pxfirstname' => $data['pxfirstname'],
-            'pxlastname' => $data['pxlastname'],
-            'amount' => $data['amount'],
-        ]);
+            ->insert([
+                'date' => $data['date'],
+                'time' => $data['time'],
+                'tooth' => $data['tooth'],
+                'description' => $data['description'],
+                'pxfirstname' => $data['pxfirstname'],
+                'pxlastname' => $data['pxlastname'],
+                'amount' => $data['amount'],
+            ]);
     }
 
     public function getRecords(Request $request)
     {
         $firstname = $request->input('firstname');
         $lastname = $request->input('lastname');
-    
+
         // Use a query to fetch records for the specified user
         $data = Records::where('pxfirstname', $firstname)
-                       ->where('pxlastname', $lastname)
-                       ->get();
-    
+            ->where('pxlastname', $lastname)
+            ->get();
+
+        $toothArray = [];
+
+        foreach ($data as $record) {
+            $toothArray[] = $record->tooth; // Storing 'tooth' values in the array
+        }
+
         if ($data->isEmpty()) {
             // If no records are found, redirect with a message using the with method
             return view('admin/mouth')->with(['records' => $data, 'success' => false]);
         } else {
             // If records are found, redirect with the data and success set to true
-            session(['records'=>$data]);
+            session(['records' => $data, 'toothArray' => $toothArray]);
             return response()->json([
-                'success'=>true
+                'success' => true
             ]);
         }
     }
-    
-    
-    
-
 }
-
-

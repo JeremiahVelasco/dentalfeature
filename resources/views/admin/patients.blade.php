@@ -74,6 +74,11 @@
     </div>
 
     <div class="main-content">
+        <form action="" class="filter">
+            <input type="text" id = "firstname">
+            <input type="text" id = "lastname">
+            <button type = "button">Search</button>
+        </form>
         <div class="container">
             <section class="table_body">
                 <table>

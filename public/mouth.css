@@ -183,17 +183,6 @@ body {
     margin-top: 15px;
 }
 
-.tooth {
-    height: 200px;
-    cursor: pointer;
-    transition: .2s ease-out;
-}
-
-.tooth:hover {
-    filter: brightness(1.25);
-    scale: 1.05;
-}
-
 /* FOR MODAL */
 .modal {
     display: none;
@@ -246,7 +235,7 @@ body {
     padding: 0.8rem 1rem;
 }
 
-.table_body {
+.recordsbody {
     width: 95%;
     max-height: calc(89% - 1.6rem);
     background-color: #fffb;
@@ -255,49 +244,80 @@ body {
     overflow: auto;
 }
 
-.table_body::-webkit-scrollbar {
+.recordsbody::-webkit-scrollbar {
     width: 0.5rem;
     height: 0.5rem;
 }
 
-.table_body::-webkit-scrollbar-thumb {
+.recordsbody::-webkit-scrollbar-thumb {
     border-radius: 0.5rem;
     background-color: #0004;
     visibility: hidden;
 }
 
-.table_body:hover::-webkit-scrollbar-thumb {
+.recordsbody:hover::-webkit-scrollbar-thumb {
     visibility: visible;
 }
 
-td img {
+.detailsbody td img {
     width: 46px;
     height: 46px;
     border-radius: 50%;
     vertical-align: middle;
 }
 
-table, th, td {
+.recordstable, th, td {
     padding: 1rem;
     border-collapse: collapse;
 }
 
-table {
+.recordstable {
     width: 100%;
     text-align: center;
 }
 
-thead th {
+.recordshead th {
     position: sticky;
     top: 0;
     left: 0;
     background-color: #d5d1defe;
 }
  
-tbody tr:nth-child(even) {
+.detailsbody tr:nth-child(even) {
     background-color: #0000000b;
 }
 
-tbody tr:hover {
+.detailsbody tr:hover {
     background-color: #fff6;
+}
+
+.teeth-container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.upperlower {
+    justify-self: center;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+}
+
+.upperlower td {
+    cursor: pointer;
+    padding: 1.5rem 0;
+    text-align: center;
+    color: #fff;
+}
+
+.upperlower td img {
+    height: 54px;
+    margin: .3rem 0;
+}
+
+.upperlower td:hover img {
+    transform: scale(1.5);
+    filter: brightness(1.5);
 }
