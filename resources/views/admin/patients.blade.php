@@ -387,7 +387,14 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            console.log('Deleted: ' + firstname + " " + lastname);
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Successfuly Deleted',
+                                showConfirmButton: true,
+                                confirmButtonColor: '#F27574',
+                                timer: 2500
+                            })
                         } else {
                             console.log("Did not work")
                         }

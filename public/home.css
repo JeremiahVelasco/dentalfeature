@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #454545 !important;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+header {
+    height: 100vh;
+    background: linear-gradient(rgba(15,15,15,0.7),rgba(15,15,15,0.6)), url('bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1.5rem 3rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo {
+    color: #fff;
+}
+
+.nav .logo i {
+    color: #00b7ff;
+}
+
+.nav-links ul {
+    display: flex;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    margin-left: 2rem;
+    background: #00b7ff;
+    padding: 5px 8px;
+    border-radius: 20px;
+    transition: .1s;
+}
+
+.nav-links ul li a:hover {
+    background: transparent;
+    outline: 3px solid #00b7ff;
+}
+
+.main-content {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 90%;
+}
+
+.main-content .book {
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 40px;
+    background: #00b7ff;
+    color: #fff;
+    box-shadow: 10px 10px 26px 0px rgba(0,0,0,0.75);
+    transition: ease .2s;
+    cursor: pointer;
+    display: flex;
+}
+
+.main-content .book:hover {
+    transform: scale(1.10);
+    outline: 5px solid #00b7ff;
+    background: transparent;
+    box-shadow: none;
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.default h3 {
+    margin-top: 1rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.names {
+    display: none;
+}
+
+.date-time {
+    display: none;
+}
+
+.services {
+    display: none;
+}

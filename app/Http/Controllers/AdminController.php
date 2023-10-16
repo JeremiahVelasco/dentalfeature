@@ -177,7 +177,6 @@ class AdminController extends Controller
 
     public function deletePatient(Request $request)
     {
-
         $firstname = $request->input('firstname');
         $lastname = $request->input('lastname');
 
@@ -196,7 +195,7 @@ class AdminController extends Controller
 
             if ($result) {
                 // Return a success response if the patient was deleted successfully
-                return response()->json(['message' => 'Patient deleted successfully'], 200);
+                return response()->json(['success' => true]);
             } else {
                 // Return an error response if there was an issue deleting the patient
                 return response()->json(['message' => 'Failed to delete patient'], 500);
