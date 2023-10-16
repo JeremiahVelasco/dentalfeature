@@ -83,8 +83,8 @@ class AdminController extends Controller
             'date' => 'required',
             'time' => 'required',
             'tooth' => 'required',
-            'pxfirstname' => 'required',
-            'pxlastname' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'description' => 'required',
             'amount' => 'required',
         ]);
@@ -95,13 +95,46 @@ class AdminController extends Controller
             'time' => $request->input('time'),
             'tooth' => $request->input('tooth'),
             'description' => $request->input('description'),
-            'pxfirstname' => $request->input('pxfirstname'),
-            'pxlastname' => $request->input('pxlastname'),
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
             'amount' => $request->input('amount'),
         ];
 
         // Add the record to the database
         $result = $this->insertRecord($data); // Assuming you have a function to add the record
+
+        if ($result) {
+            // Return a success response if the record was added successfully
+            return response()->json(['message' => 'Record added successfully'], 200);
+        } else {
+            // Return an error response if there was an issue adding the record
+            return response()->json(['message' => 'Failed to add record'], 500);
+        }
+    }
+
+    public function storePatient(Request $request)
+    {
+        // Validate the request data if needed
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'contactno' => 'required'
+        ]);
+
+        // Extract data from the request
+        $data = [
+            'firstname' => $request->input('firstname'),
+            'middlename' => $request->input('middlename'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'age' => $request->input('age'),
+            'sex' => $request->input('sex'),
+            'contactno' => $request->input('contactno'),
+        ];
+
+        // Add the record to the database
+        $result = $this->insertPatient($data); // Assuming you have a function to add the record
 
         if ($result) {
             // Return a success response if the record was added successfully
@@ -121,11 +154,59 @@ class AdminController extends Controller
                 'time' => $data['time'],
                 'tooth' => $data['tooth'],
                 'description' => $data['description'],
-                'pxfirstname' => $data['pxfirstname'],
-                'pxlastname' => $data['pxlastname'],
+                'firstname' => $data['firstname'],
+                'lastname' => $data['lastname'],
                 'amount' => $data['amount'],
             ]);
     }
+
+    public function insertPatient(array $data)
+    {
+        return DB::table('patients')
+            ->insert([
+                'firstname' => $data['firstname'],
+                'middlename' => $data['middlename'],
+                'lastname' => $data['lastname'],
+                'email' => $data['email'],
+                'address' => $data['address'],
+                'age' => $data['age'],
+                'sex' => $data['sex'],
+                'contactno' => $data['contactno'],
+            ]);
+    }
+
+    public function deletePatient(Request $request)
+    {
+
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+
+        // Check if the patient exists
+        $patient = DB::table('patients')
+            ->where('firstname', $firstname)
+            ->where('lastname', $lastname)
+            ->first();
+
+        if ($patient) {
+            // Delete the patient
+            $result = DB::table('patients')
+                ->where('firstname', $firstname)
+                ->where('lastname', $lastname)
+                ->delete();
+
+            if ($result) {
+                // Return a success response if the patient was deleted successfully
+                return response()->json(['message' => 'Patient deleted successfully'], 200);
+            } else {
+                // Return an error response if there was an issue deleting the patient
+                return response()->json(['message' => 'Failed to delete patient'], 500);
+            }
+        } else {
+            // Return an error response if the patient doesn't exist
+            return response()->json(['message' => 'Patient not found'], 404);
+        }
+    }
+
 
     public function getRecords(Request $request)
     {
@@ -133,8 +214,8 @@ class AdminController extends Controller
         $lastname = $request->input('lastname');
 
         // Use a query to fetch records for the specified user
-        $data = Records::where('pxfirstname', $firstname)
-            ->where('pxlastname', $lastname)
+        $data = Records::where('firstname', $firstname)
+            ->where('lastname', $lastname)
             ->get();
 
         $toothArray = [];
@@ -161,8 +242,8 @@ class AdminController extends Controller
         $lastname = $request->input('lastname');
 
         // Use a query to fetch records for the specified user
-        $data = Records::where('pxfirstname', $firstname)
-            ->where('pxlastname', $lastname)
+        $data = Records::where('firstname', $firstname)
+            ->where('lastname', $lastname)
             ->get();
         session(['records' => $data]);
         return response()->json([

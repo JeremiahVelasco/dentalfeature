@@ -40,6 +40,8 @@ Route::get('/dashboard', [AdminController::class, 'dashboard']);
 Route::get('/records', [AdminController::class, 'records']);
 Route::get('/patients', [AdminController::class, 'patients']);
 Route::post('/storeRecord', [AdminController::class, 'storeRecord']);
+Route::post('/storePatient', [AdminController::class, 'storePatient']);
 Route::get('/getRecords', [AdminController::class, 'getRecords']);
 Route::get('/getPatients', [AdminController::class, 'getPatients']);
+Route::post('/deletePatient', [AdminController::class, 'deletePatient']);
 Route::get('/mouth', [AdminController::class, 'mouth']);

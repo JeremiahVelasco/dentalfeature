@@ -17,5 +17,7 @@ class VerifyCsrfToken extends Middleware
         '/login',
         '/signOut',
         'storeRecord',
+        'storePatient',
+        'deletePatient',
     ];
 }

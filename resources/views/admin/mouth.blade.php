@@ -51,13 +51,6 @@
                 <span class="tooltip">Patients</span>
             </li>
             <li>
-                <a href="/addrecord">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="nav-item">Add</span>
-                </a>
-                <span class="tooltip">Add</span>
-            </li>
-            <li>
                 <a href="/records">
                     <i class="fa-solid fa-user-secret"></i>
                     <span class="nav-item">Records</span>

@@ -171,6 +171,30 @@ body {
     padding: 1rem;
 }
 
+.header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .5rem;
+    color: #fff;
+}
+
+.header button {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(0, 91, 247);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header button:hover {
+    background-color: rgb(0, 31, 203);
+}
+
 .container.table {
     width: 82vw;
     height: 80vh;
@@ -257,14 +281,27 @@ tbody tr:hover {
 .view-records {
     text-decoration: none;
     color: #fff;
-    background-color: rgb(0, 91, 247);
+    background-color: rgb(226, 185, 0);
     padding: 6px 10px;
     border: none;
     border-radius: 5px;
 }
 
 .view-records:hover {
-    background-color: rgb(0, 31, 203);
+    background-color: rgb(195, 159, 0);
+}
+
+.delete-patient {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(187, 4, 4);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.delete-patient:hover {
+    background-color: rgb(136, 0, 0);
 }
 
 .modal-container {
@@ -272,7 +309,7 @@ tbody tr:hover {
     justify-content: center;
 }
 
-.add-record-modal {
+.add-record-modal, .add-patient-modal {
     border-radius: 40px;
     align-items: center;
     text-align: center;
@@ -282,7 +319,7 @@ tbody tr:hover {
     backdrop-filter: blur(10px);
     display: none;
     width: 35%;
-    height: 85%;
+    height: 90%;
     flex-direction: column;
     padding: 1rem 3rem;
     z-index: 999;
@@ -299,7 +336,20 @@ form {
     color: #e8e8e8;
 }
 
+.add-patient-modal label {
+    color: #e8e8e8;
+}
+
 .add-record-modal input {
+    margin-bottom: .8rem;
+    border-radius: 5px;
+    border: none;
+    padding: .15rem .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-patient-modal input {
     margin-bottom: .8rem;
     border-radius: 5px;
     border: none;
@@ -315,6 +365,38 @@ form {
     padding: .15rem .5rem;
     text-align: center;
     cursor: pointer;
+}
+
+.add-patient-modal select {
+    margin-bottom: .8rem;
+    border-radius: 5px;
+    border: none;
+    padding: .15rem .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-patient-modal #confirmpatient, #cancelpatient {
+    margin: 7px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(11, 173, 11);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-patient-modal #cancelpatient {
+    background-color: rgb(187, 0, 0);
+}
+
+.add-patient-modal #cancelpatient:hover {
+    background-color: rgb(255, 21, 21);
+}
+
+.add-patient-modal #confirmpatient:hover {
+    background-color: rgb(0, 204, 0);
 }
 
 .add-record-modal #confirm, #cancel {

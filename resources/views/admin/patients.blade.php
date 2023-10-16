@@ -52,13 +52,6 @@
                 <span class="tooltip">Patients</span>
             </li>
             <li>
-                <a href="/addrecord">
-                    <i class="fa-solid fa-users"></i>
-                    <span class="nav-item">Add</span>
-                </a>
-                <span class="tooltip">Add</span>
-            </li>
-            <li>
                 <a href="/records">
                     <i class="fa-solid fa-user-secret"></i>
                     <span class="nav-item">Records</span>
@@ -77,9 +70,35 @@
 
     <div class="main-content">
         <div class="header">
-            <button><i class="fa-solid fa-user-plus"></i>Add Patient</button>
+            <h1>Patients</h1>
+            <button id="add-patient"><i class="fa-solid fa-user-plus"></i>Add Patient</button>
         </div>
         <div class="modal-container">
+            <div class="add-patient-modal">
+                <form action="" id="addPatientForm">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname">
+                    <label for="middlename">Middle Name</label>
+                    <input type="text" id="middlename">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                    <label for="address">Address</label>
+                    <input type="text" id="address">
+                    <label for="age">Age</label>
+                    <input type="number" id="age">
+                    <label for="email">Sex</label>
+                    <select name="sex" id="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="contactno">Contact Number</label>
+                    <input type="text" id="contactno">
+                    <button type="submit" id="confirmpatient">Confirm</button>
+                    <button id="cancelpatient">Cancel</button>
+                </form>
+            </div>
             <div class="add-record-modal">
                 <form action="" id="addRecordForm">
                     <label for="firstname">First Name</label>
@@ -90,8 +109,8 @@
                     <input type="date" id="date">
                     <label for="time">Time</label>
                     <input type="time" id="time">
-                    <label for="Tooth Number">Tooth No.</label>
-                    <select name="Tooth Number" id="tooth">
+                    <label for="tooth">Tooth No.</label>
+                    <select name="tooth" id="tooth">
                         <option value="N/A">N/A</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
@@ -159,6 +178,7 @@
                             <td>{{ $user['email']}}</td>
                             <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="add-record"><i class="fa-solid fa-file-circle-plus"></i> Add Record </a></td>
                             <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="view-records"><i class="fa-regular fa-folder-open"></i> Records </a></td>
+                            <td><a href="#" data-patientid="{{ $user['patientid'] }}" data-firstname="{{ $user['firstname'] }}" data-lastname="{{ $user['lastname'] }}" class="delete-patient"><i class="fa-solid fa-trash-can"></i> Delete </a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -182,12 +202,35 @@
             document.querySelector('.add-record-modal').style.display = 'none';
         });
 
+        document.getElementById('cancelpatient').addEventListener('click', function() {
+            // Change the display property of the modal container to 'none'
+            document.querySelector('.add-patient-modal').style.display = 'none';
+        });
+
         const recordModal = document.querySelector('.add-record-modal');
         document.addEventListener('click', function(e) {
             if (e.target !== recordModal && !recordModal.contains(e.target)) {
                 recordModal.style.display = 'none';
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addPatientButton = document.getElementById('add-patient');
+            const addPatientModal = document.querySelector('.add-patient-modal');
+
+            addPatientButton.addEventListener('click', function() {
+                addPatientModal.style.display = 'flex';
+            });
+
+            // Add click event listener to the document
+            document.addEventListener('click', function(e) {
+                if (!addPatientModal.contains(e.target) && e.target !== addPatientButton) {
+                    addPatientModal.style.display = 'none';
+                }
+            });
+        });
+
+
 
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('view-records')) {
@@ -263,13 +306,18 @@
             $("#addRecordForm").submit(function(event) {
                 event.preventDefault();
 
+                // Ensure that the values from the modal are retrieved properly
+                const modal = document.querySelector('.add-record-modal');
+                const firstname = modal.querySelector('#firstname').value;
+                const lastname = modal.querySelector('#lastname').value;
+
                 var formData = {
                     date: $("#date").val(),
                     time: $("#time").val(),
                     tooth: $("#tooth").val(),
                     description: $("#description").val(),
-                    pxfirstname: $("#firstname").val(),
-                    pxlastname: $("#lastname").val(),
+                    firstname: firstname, // Use the firstname from the modal
+                    lastname: lastname, // Use the lastname from the modal
                     amount: $("#amount").val(),
                 };
 
@@ -288,6 +336,69 @@
                 });
             });
         });
+
+
+
+        $(document).ready(function() {
+            $("#addPatientForm").submit(function(event) {
+                event.preventDefault();
+
+                var formData = {
+                    firstname: $("#firstname").val(),
+                    middlename: $("#middlename").val(),
+                    lastname: $("#lastname").val(),
+                    email: $("#email").val(),
+                    address: $("#address").val(),
+                    age: $("#age").val(),
+                    sex: $("#sex").val(),
+                    contactno: $("#contactno").val(),
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/storePatient",
+                    data: formData,
+                    success: function(response) {
+                        Swal.fire("Success!", "Patient added successfully.", "success");
+
+                        $("#addPatientForm")[0].reset();
+                    },
+                    error: function(error) {
+
+                    },
+                });
+            });
+        });
+
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('delete-patient')) {
+                e.preventDefault();
+                const firstname = e.target.getAttribute('data-firstname');
+                const lastname = e.target.getAttribute('data-lastname');
+
+                // Send an AJAX request to the getRecords function in the controller
+                $.ajax({
+                    type: 'POST',
+                    url: '/deletePatient',
+                    data: {
+                        firstname: firstname,
+                        lastname: lastname,
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            console.log('Deleted: ' + firstname + " " + lastname);
+                        } else {
+                            console.log("Did not work")
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX Error:', textStatus, errorThrown);
+                    }
+                });
+
+            }
+        })
     </script>
 
 
