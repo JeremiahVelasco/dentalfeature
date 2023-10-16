@@ -109,6 +109,14 @@
             </table>
         </div>
 
+        <div class="modal-content">
+            <img src="default-tooth.png" alt="Molar Image" class="modal-image" id="modalImage">
+            <h2 class="title">Tooth Information</h2>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+
 
 
         @if (session('records'))
@@ -143,20 +151,6 @@
         @endif
 
     </div>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="molar.png" alt="Molar Image" class="modal-image" id="modalImage">
-            <h2 class="title">Tooth Information</h2>
-            <ul>
-                <li>Record 1</li>
-                <li>Record 2</li>
-                <li>Record 3</li>
-            </ul>
-        </div>
-    </div>
-
 
     <script>
         let btn = document.querySelector('#btn');

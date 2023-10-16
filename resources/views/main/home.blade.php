@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Logo</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -21,8 +21,9 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -40,9 +41,10 @@
                 <input type="text" placeholder="First Name">
                 <label for="lastname">Last Name</label>
                 <input type="text" placeholder="Last Name">
-
-                <button id="prevnames" type="button">Previous</button>
-                <button id="nextnames" type="button">Next</button>
+                <div class="row">
+                    <button id="prevnames" type="button">Previous</button>
+                    <button id="nextnames" type="button">Next</button>
+                </div>
             </form>
 
             <form action="" class="date-time">
@@ -58,7 +60,6 @@
             <form action="" class="services">
                 <label for="service">Service</label>
                 <select name="" id="service">
-                    <option value=" "> </option>
                     <option value="Check Up">Check Up</option>
                     <option value="Check Up">Zirconia Crowns</option>
                     <option value="Check Up">Root Canal Therapy</option>
@@ -77,10 +78,10 @@
                     <option value="Dr. Juan Dela Cruz">Dr. Maria Clara</option>
                 </select>
                 <label for="message">Message</label>
-                <textarea id="message"></textarea>
+                <textarea style="resize:none" id="message"></textarea>
 
                 <button type="button" id="prevservices">Previous</button>
-                <button type="button" id="nextservices">Book</button>
+                <button type="button" id="bookbtn">Book</button>
             </form>
         </div>
     </header>
