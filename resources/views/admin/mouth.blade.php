@@ -166,6 +166,14 @@
 
 
     <script>
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+
+        btn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+
+
         var toothArray = @json(session('toothArray'));
         if (toothArray && toothArray.length > 0) {
             toothArray.forEach(function(tooth) {

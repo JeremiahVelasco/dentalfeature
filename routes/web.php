@@ -27,20 +27,19 @@ Route::get('/registerpage', function () {
     return view('registerpage');
 });
 
-Route::get('/email-exists',[MainController::class,'emailExists']);
-Route::post('/register',[MainController::class,'register']);
-Route::post('/login',[MainController::class,'login']);
-Route::post('/signOut',[MainController::class,'signOut']);
+Route::get('/email-exists', [MainController::class, 'emailExists']);
+Route::post('/register', [MainController::class, 'register']);
+Route::post('/login', [MainController::class, 'login']);
+Route::post('/signOut', [MainController::class, 'signOut']);
 
-Route::get('registersuccess',[MainController::class,'registersuccess']);
+Route::get('registersuccess', [MainController::class, 'registersuccess']);
 
 
 //Admin Routes
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
 Route::get('/records', [AdminController::class, 'records']);
 Route::get('/patients', [AdminController::class, 'patients']);
-Route::get('/addrecord', [AdminController::class, 'addRecord']);
 Route::post('/storeRecord', [AdminController::class, 'storeRecord']);
 Route::get('/getRecords', [AdminController::class, 'getRecords']);
+Route::get('/getPatients', [AdminController::class, 'getPatients']);
 Route::get('/mouth', [AdminController::class, 'mouth']);
-

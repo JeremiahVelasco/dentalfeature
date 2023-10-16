@@ -154,4 +154,19 @@ class AdminController extends Controller
             ]);
         }
     }
+
+    public function getPatients(Request $request)
+    {
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+
+        // Use a query to fetch records for the specified user
+        $data = Records::where('pxfirstname', $firstname)
+            ->where('pxlastname', $lastname)
+            ->get();
+        session(['records' => $data]);
+        return response()->json([
+            'success' => true
+        ]);
+    }
 }

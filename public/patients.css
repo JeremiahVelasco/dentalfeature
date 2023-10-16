@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -137,6 +139,7 @@ body {
 }
 
 .sidebar ul li .tooltip {
+    color: #fff;
     position: absolute;
     left: 125px;
     top: 50%;
@@ -159,7 +162,7 @@ body {
 }
 
 .main-content {
-    position: relative;
+    position: absolute;
     min-height: 100vh;
     top: 0;
     left: 80px;
@@ -238,15 +241,101 @@ tbody tr:hover {
     background-color: #fff6;
 }
 
+.add-record {
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(21, 154, 0);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-record:hover {
+    background-color: rgb(0, 119, 10);
+}
+
 .view-records {
     text-decoration: none;
-    color: #000;
-    background-color: rgb(11, 173, 11);
-    padding: 3px 5px;
-    border: 2px solid black;
-    border-radius: 10px;
+    color: #fff;
+    background-color: rgb(0, 91, 247);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
 }
 
 .view-records:hover {
-    background-color: rgb(0, 229, 0);
+    background-color: rgb(0, 31, 203);
+}
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-record-modal {
+    border-radius: 40px;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0.5rem 0.8rem rgba(0,0,0, .2);
+    backdrop-filter: blur(10px);
+    display: none;
+    width: 35%;
+    height: 85%;
+    flex-direction: column;
+    padding: 1rem 3rem;
+    z-index: 999;
+    top: 5%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.add-record-modal label {
+    color: #e8e8e8;
+}
+
+.add-record-modal input {
+    margin-bottom: .8rem;
+    border-radius: 5px;
+    border: none;
+    padding: .15rem .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-record-modal select {
+    margin-bottom: .8rem;
+    border-radius: 5px;
+    border: none;
+    padding: .15rem .5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-record-modal #confirm, #cancel {
+    margin: 7px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgb(11, 173, 11);
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-record-modal #cancel {
+    background-color: rgb(187, 0, 0);
+}
+
+.add-record-modal #cancel:hover {
+    background-color: rgb(255, 21, 21);
+}
+
+.add-record-modal #confirm:hover {
+    background-color: rgb(0, 204, 0);
 }
