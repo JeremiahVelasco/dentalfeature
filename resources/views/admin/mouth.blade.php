@@ -71,40 +71,40 @@
         <div class="teeth-container">
             <table class="upperlower">
                 <tr>
-                    <td id="18">18<img src="teeth/18.png"></td>
-                    <td id="17">17<img src="teeth/17.png"></td>
-                    <td id="16">16<img src="teeth/16.png"></td>
-                    <td id="15">15<img src="teeth/15.png"></td>
-                    <td id="14">14<img src="teeth/14.png"></td>
-                    <td id="13">13<img src="teeth/13.png"></td>
-                    <td id="12">12<img src="teeth/12.png"></td>
-                    <td id="11">11<img src="teeth/11.png"></td>
-                    <td id="21">21<img src="teeth/21.png"></td>
-                    <td id="22">22<img src="teeth/22.png"></td>
-                    <td id="23">23<img src="teeth/23.png"></td>
-                    <td id="24">24<img src="teeth/24.png"></td>
-                    <td id="25">25<img src="teeth/25.png"></td>
-                    <td id="26">26<img src="teeth/26.png"></td>
-                    <td id="27">27<img src="teeth/27.png"></td>
-                    <td id="28">28<img src="teeth/28.png"></td>
+                    <td id="18" class="tooth">18<img src="teeth/18.png"></td>
+                    <td id="17" class="tooth">17<img src="teeth/17.png"></td>
+                    <td id="16" class="tooth">16<img src="teeth/16.png"></td>
+                    <td id="15" class="tooth">15<img src="teeth/15.png"></td>
+                    <td id="14" class="tooth">14<img src="teeth/14.png"></td>
+                    <td id="13" class="tooth">13<img src="teeth/13.png"></td>
+                    <td id="12" class="tooth">12<img src="teeth/12.png"></td>
+                    <td id="11" class="tooth">11<img src="teeth/11.png"></td>
+                    <td id="21" class="tooth">21<img src="teeth/21.png"></td>
+                    <td id="22" class="tooth">22<img src="teeth/22.png"></td>
+                    <td id="23" class="tooth">23<img src="teeth/23.png"></td>
+                    <td id="24" class="tooth">24<img src="teeth/24.png"></td>
+                    <td id="25" class="tooth">25<img src="teeth/25.png"></td>
+                    <td id="26" class="tooth">26<img src="teeth/26.png"></td>
+                    <td id="27" class="tooth">27<img src="teeth/27.png"></td>
+                    <td id="28" class="tooth">28<img src="teeth/28.png"></td>
                 </tr>
                 <tr>
-                    <td id="48"><img src="teeth/48.png">48</td>
-                    <td id="47"><img src="teeth/47.png">47</td>
-                    <td id="46"><img src="teeth/46.png">46</td>
-                    <td id="45"><img src="teeth/45.png">45</td>
-                    <td id="44"><img src="teeth/44.png">44</td>
-                    <td id="43"><img src="teeth/43.png">43</td>
-                    <td id="42"><img src="teeth/42.png">42</td>
-                    <td id="41"><img src="teeth/41.png">41</td>
-                    <td id="31"><img src="teeth/31.png">31</td>
-                    <td id="32"><img src="teeth/32.png">32</td>
-                    <td id="33"><img src="teeth/33.png">33</td>
-                    <td id="34"><img src="teeth/34.png">34</td>
-                    <td id="35"><img src="teeth/35.png">35</td>
-                    <td id="36"><img src="teeth/36.png">36</td>
-                    <td id="37"><img src="teeth/37.png">37</td>
-                    <td id="38"><img src="teeth/38.png">38</td>
+                    <td id="48" class="tooth"><img src="teeth/48.png">48</td>
+                    <td id="47" class="tooth"><img src="teeth/47.png">47</td>
+                    <td id="46" class="tooth"><img src="teeth/46.png">46</td>
+                    <td id="45" class="tooth"><img src="teeth/45.png">45</td>
+                    <td id="44" class="tooth"><img src="teeth/44.png">44</td>
+                    <td id="43" class="tooth"><img src="teeth/43.png">43</td>
+                    <td id="42" class="tooth"><img src="teeth/42.png">42</td>
+                    <td id="41" class="tooth"><img src="teeth/41.png">41</td>
+                    <td id="31" class="tooth"><img src="teeth/31.png">31</td>
+                    <td id="32" class="tooth"><img src="teeth/32.png">32</td>
+                    <td id="33" class="tooth"><img src="teeth/33.png">33</td>
+                    <td id="34" class="tooth"><img src="teeth/34.png">34</td>
+                    <td id="35" class="tooth"><img src="teeth/35.png">35</td>
+                    <td id="36" class="tooth"><img src="teeth/36.png">36</td>
+                    <td id="37" class="tooth"><img src="teeth/37.png">37</td>
+                    <td id="38" class="tooth"><img src="teeth/38.png">38</td>
                 </tr>
             </table>
         </div>
@@ -170,6 +170,44 @@
                 }
             });
         }
+
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('tooth')) {
+                e.preventDefault();
+                const firstname = e.target.getAttribute('data-firstname');
+                const lastname = e.target.getAttribute('data-lastname');
+                const tooth = e.target.gettAttribute('id');
+
+                // Send an AJAX request to the getRecords function in the controller
+                $.ajax({
+                    type: 'GET',
+                    url: '/getRecords',
+                    data: {
+                        firstname: firstname,
+                        lastname: lastname,
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            console.log('Success getting Tooth Record of: ' + firstname + " " + lastname);
+                        } else {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'error',
+                                title: 'No Records Found',
+                                showConfirmButton: true,
+                                confirmButtonColor: '#F27574',
+                                timer: 2500
+                            })
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('AJAX Error:', textStatus, errorThrown);
+                    }
+                });
+
+            }
+        });
     </script>
 
 

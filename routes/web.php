@@ -19,13 +19,34 @@ Route::get('/', function () {
     return view('main.home');
 });
 
+Route::get('/services', function () {
+    return view('main.services');
+});
+
+Route::get('/about', function () {
+    return view('main.about');
+});
+
+Route::get('/invisalign', function () {
+    return view('main.services.invisalign');
+});
+
+Route::get('/preventive', function () {
+    return view('main.services.preventive');
+});
+
+Route::get('/restorative', function () {
+    return view('main.services.restorative');
+});
+
+Route::get('/cosmetic', function () {
+    return view('main.services.cosmetic');
+});
+
 Route::get('/loginpage', function () {
     return view('loginpage');
 });
 
-Route::get('/registerpage', function () {
-    return view('registerpage');
-});
 
 Route::get('/email-exists', [MainController::class, 'emailExists']);
 Route::post('/register', [MainController::class, 'register']);
