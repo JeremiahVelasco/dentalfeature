@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo</title>
+    <title>Caroline C. Daligues, D.M.D., Inc.</title>
+    <link rel="icon" href="icon.png">
     <link rel="stylesheet" href="dentistry.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -147,6 +148,102 @@
     </header>
 
     <div class="section1">
+        <h1 class="section-title">Procedures</h1>
+        <p class="section-note">photos used are procedures done by Dr. Daligues</p>
+        <!--PROCEDURE CARD -->
+        <div class="procedure-card row">
+            <div class="procedure-title">
+                <h2>Inlay</h2>
+            </div>
+
+            <div class="procedure-images">
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1143.JPG" alt="">
+                    <h3>Before</h3>
+                </div>
+
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1144.JPG" alt="">
+                    <h3>After</h3>
+                </div>
+            </div>
+        </div>
+
+        <!--PROCEDURE CARD -->
+        <div class="procedure-card row">
+            <div class="procedure-title">
+                <h2>Onlay</h2>
+            </div>
+
+            <div class="procedure-images">
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1145.JPG" alt="">
+                    <h3>Before</h3>
+                </div>
+
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1146.JPG" alt="">
+                    <h3>After</h3>
+                </div>
+            </div>
+        </div>
+
+        <!--PROCEDURE CARD -->
+        <div class="procedure-card row">
+            <div class="procedure-title">
+                <h2>Composite Resin Filling</h2>
+            </div>
+
+            <div class="procedure-images">
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1147.JPG" alt="">
+                    <h3>Before</h3>
+                </div>
+
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1148.JPG" alt="">
+                    <h3>After</h3>
+                </div>
+            </div>
+        </div>
+
+        <!--PROCEDURE CARD -->
+        <div class="procedure-card row">
+            <div class="procedure-title">
+                <h2>Bridgework</h2>
+            </div>
+
+            <div class="procedure-images">
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1149.JPG" alt="">
+                    <h3>Before</h3>
+                </div>
+
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1150.JPG" alt="">
+                    <h3>After</h3>
+                </div>
+            </div>
+        </div>
+
+        <!--PROCEDURE CARD -->
+        <div class="procedure-card row">
+            <div class="procedure-title">
+                <h2>Bridgework</h2>
+            </div>
+
+            <div class="procedure-images">
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1278.JPG" alt="">
+                    <h3>Before</h3>
+                </div>
+
+                <div class="image-holder">
+                    <img src="assets/dd/IMG_1283.JPG" alt="">
+                    <h3>After</h3>
+                </div>
+            </div>
+        </div>
 
     </div>
 

@@ -10,14 +10,14 @@
 }
 
 body {
-    background-color: #454545 !important;
+    background-color: #e4e4e4 !important;
     min-height: 100vh;
     justify-content: center;
 }
 
 header {
     height: 100vh;
-    background: linear-gradient(rgba(15,15,15,1),rgba(15,15,15,0.6)), url('bg.jpg');
+    background: linear-gradient(rgba(15,15,15,.95),rgba(15,15,15,0.8)), url('assets/dd/IMG_1109.JPG');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
